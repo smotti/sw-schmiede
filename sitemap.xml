@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://smotti.github.io/sw-schmiede/categories/</loc>
+    <loc>https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/</loc>
+    <lastmod>2017-06-19T10:20:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smotti.github.io/sw-schmiede/contact/</loc>
+    <lastmod>2017-06-19T09:49:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smotti.github.io/sw-schmiede/about/</loc>
+    <lastmod>2017-06-19T09:49:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smotti.github.io/sw-schmiede/blog/</loc>
+    <lastmod>2017-06-19T10:20:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://smotti.github.io/sw-schmiede/</loc>
+    <loc>https://smotti.github.io/sw-schmiede/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://smotti.github.io/sw-schmiede/tags/</loc>
+    <loc>https://smotti.github.io/sw-schmiede/</loc>
+    <lastmod>2017-06-19T10:20:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://smotti.github.io/sw-schmiede/tags/</loc>
     <priority>0</priority>
   </url>
   

@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Software Schmiede</title>
-    <link>http://smotti.github.io/sw-schmiede/tags/</link>
+    <link>https://smotti.github.io/sw-schmiede/tags/</link>
     <description>Recent content in Tags on Software Schmiede</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://smotti.github.io/sw-schmiede/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://smotti.github.io/sw-schmiede/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

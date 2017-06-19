@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Software Schmiede provides consulting in IT System Engineering and Agile Software Development">
+
+<base href="https://smotti.github.io/sw-schmiede/">
+<title>
+
+
+     Decentralized Infrastructure with CFEngine3 and Serf 
+
+</title>
+<link rel="canonical" href="https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500|Work+Sans">
+
+
+
+    
+    <link rel="stylesheet" href="https://smotti.github.io/sw-schmiede/css/light-style.css?t=1497841684">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://smotti.github.io/sw-schmiede/img/fav.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+<body lang="en">
+  
+
+<div class="section" id="top">
+
+    <div class="container hero ">
+    <h1 class="bold-title is-1">William's Blog</h1>
+    </div>
+
+
+<div class="section ">
+
+    <div class="container">
+    <hr>
+<nav class="nav nav-center">
+    <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div id="nav-menu" class="nav-left nav-menu">
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/">Main</a>
+      </span>
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/#about">About</a> 
+      </span>
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/#projects">Projects</a> 
+      </span>
+    
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/blog">Back to blog</a>
+      </span> 
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/#contact">Contact</a>
+      </span>
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/index.xml"><i class="fa fa-rss"></i></a>
+      </span>
+    
+    </div>
+</nav>
+<hr>
+    </div>
+
+    <div class="container ">
+        <h2 class="title is-1 top-pad strong-post-title"><a href="https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/">Decentralized Infrastructure with CFEngine3 and Serf</a></h2>
+            <div class="post-data">
+                Jun 19, 2017 |
+                9 minutes read
+            </div>
+
+            
+                <div class="blog-share">
+                Share this:
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20Decentralized%20Infrastructure%20with%20CFEngine3%20and%20Serf%20https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fdecentralized-infrastructure-with-cfengine3-and-serf%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fdecentralized-infrastructure-with-cfengine3-and-serf%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fdecentralized-infrastructure-with-cfengine3-and-serf%2f&amp;description=Decentralized%20Infrastructure%20with%20CFEngine3%20and%20Serf"
+                onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fa fa-pinterest"></i>
+                <span class="hidden">Pinterest</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fdecentralized-infrastructure-with-cfengine3-and-serf%2f"
+                onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-linkedin"></i>
+                <span class="hidden">Google+</span>
+                </a>
+                </div>
+            
+
+    </div>
+
+    <div class="container markdown  top-pad">
+        
+
+<h1 id="decentralized-infrastructure-with-cfengine3-and-serf">Decentralized Infrastructure with CFEngine3 and Serf</h1>
+
+<p><strong>Note this was done around two years ago, back then I couldn&rsquo;t find a similar
+setup in the CFE3 community or elsewhere.</strong></p>
+
+<p>Reading Mark Burgess&rsquo;s book <a href="https://www.amazon.com/Search-Certainty-Science-Information-Infrastructure/dp/1491923075/ref=cm_cr_arp_d_product_top?ie=UTF8">In Search of Certainty</a> I got inspired to build
+a fully decentralized cloud infrastructure, with self-healing capabilities and that
+can scale to several thousand nodes, requiring as few administrators as possible
+(due to very limited human resources at the company I built it for). The end
+result is a pretty simple and lightweight setup.</p>
+
+<p>The initial infrastructure used a kind of centralized approach (&ldquo;kind of&rdquo;
+because the only purpose for the master is to provide files to client nodes,
+besides that they aren&rsquo;t dependend on it; you may also refer to <a href="https://cfengine.com/product/benefits/#scalability">here</a> for
+more about this) by having a CFE3  master node to which client nodes connect
+to get new policies. But I wanted to get rid of the need of the master node(s).</p>
+
+<p>Where do the CFE3 nodes get their policies from, if there are no masters?
+From AWS S3 or any other cloud provider block storage. By doing so we can
+laverage the existing cloud provider infrastructure and each node, even if in
+a private subnet, can access it. This way we don&rsquo;t need to build our own
+cluster of CFE3 master nodes.</p>
+
+<p>One major drawback of CFE3 is that it doesn&rsquo;t come with orchestration out of
+the box (at least the community edition). But for this <a href="https://www.serf.io/">serf</a> can be used as
+a simple and lightweight solution.</p>
+
+<p>Serf allows us to build a decentralized cluster of nodes, where each node
+communicates with a group of other nodes within the cluster, via a <a href="https://www.serf.io/docs/internals/gossip.html">gossip
+protocol</a> on top of UDP. This gossiping allows CFE3 nodes to become aware of
+their environment and act on changes, within the environment, immediately by
+evaluating its promises.</p>
+
+<p>Now that we have a rough idea and a big picture lets dive into some details.</p>
+
+<p><strong>Note that changing internal CFE3 files should be done with care. Also care has
+to be taken while updating to newer versions, when you have customized the
+internal policies.</strong>
+<strong>Note that almost all promises regarding the enterprise version of CFE3 have
+been removed from the examples provided here (including the <a href="https://github.com/smotti/cfe3-serf-example">GitHub repository</a>).
+This was done because we only use the community edition, of performance reasons
+and because there&rsquo;s just no need for all these additional policies, if all that
+is ever used is the community edition.</strong></p>
+
+<h2 id="being-his-own-master-autonomous-cfe3-nodes">Being his own master (Autonomous CFE3 nodes)</h2>
+
+<p>Every node in the cluster is an autonomous CFE3 node, and thus its own master.
+Being its own master also requires the capability of updating policy files.
+The policy files are stored on the cloud providers block storage, so we need to
+provide our own update policy for CFE3. Because the default policy only allows
+to update either from local masterfiles or a remote master node (at least the
+community edition).</p>
+
+<p>The top level update policy <code>masterfiles/update.cf</code> doesn&rsquo;t evaluate any default
+enterprise policies and instead evaluates our custom update policies:</p>
+
+<pre><code>body common control
+{
+      bundlesequence =&gt; {
+                          &quot;update_def&quot;,
+                          &quot;cfe_internal_update_workflow&quot;,
+      };
+
+      ...
+}
+
+...
+</code></pre>
+
+<p>To <code>masterfiles/controls/update_def.cf</code> we add some additional <code>classes</code> and
+<code>vars</code> promises:</p>
+
+<pre><code>bundle common update_def
+{
+  classes:
+
+    ...
+
+    any::
+
+      &quot;daily_inputs_sync_with_purge&quot;
+        comment    =&gt; &quot;Purge inputs daily&quot;,
+        scope      =&gt; &quot;namespace&quot;,
+        expression =&gt; splayclass(&quot;${sys.host}&quot;, &quot;daily&quot;);
+
+      # Update masterfiles from remote repository    
+      &quot;cfengine_internal_masterfiles_update&quot; expression =&gt; &quot;any&quot;;
+
+  vars:
+
+    policy_server|am_policy_hub::
+      &quot;modules&quot;
+        comment =&gt; &quot;Modules required for a minimum working system&quot;,
+        slist   =&gt; { &quot;cf-manifest&quot; };   
+
+    any::
+      &quot;policy_servers&quot; slist =&gt; { &quot;127.0.0.1&quot; };
+      &quot;masterfiles_update_script&quot;
+        comment =&gt; &quot;Script to use to pull masterfiles from remote repository&quot;,
+        string  =&gt; &quot;${sys.inputdir}/tools/update_masterfiles.sh&quot;;
+      &quot;masterfiles_update_script_args&quot;
+        comment =&gt; &quot;Example script takes only one arg, a AWS S3 Bucket name&quot;,
+        string  =&gt; &quot;MY-AWS-S3-BUCKET&quot;;
+      &quot;modules_path&quot;
+        comment =&gt; &quot;Where to find modules on the policy server&quot;,
+        string  =&gt; &quot;${sys.workdir}/modules&quot;;
+      &quot;inputs_manifest&quot;
+        comment =&gt; &quot;Manifest file to determine what inputs to download&quot;,
+        string  =&gt; &quot;manifest.txt&quot;;
+      &quot;cfengine_procs&quot;
+        comment =&gt; &quot;CFEngine processes to start or restart&quot;,
+        slist   =&gt; { &quot;cf-serverd&quot;, &quot;cf-execd&quot;, &quot;cf-monitord&quot; };
+      &quot;cfengine_service&quot;
+        comment =&gt; &quot;Name of the systems cfengine service&quot;,
+        string  =&gt; &quot;cfengine3&quot;;
+  ...
+
+}
+</code></pre>
+
+<p>Note we use <code>cf-manifest</code> for a more efficient approach to update the policies.
+It was written by Neil Watson and is used by his <a href="https://github.com/neilhwatson/evolve_cfengine_freelib">Evolve CFEngine Library</a>.
+Pulling the new policies from the block storage is handled by the script
+<code>${sys.inputdir}/tools/update_masterfiles.sh</code>. This way the actual location
+isn&rsquo;t hardcoded into CFE3 promises and the source can be updated by just
+changing the script.</p>
+
+<p>The whole update procedure is defined in <code>masterfiles/cfe_internal/update/update_workflow.cf</code>:</p>
+
+<pre><code>
+bundle agent cfe_internal_update_workflow
+{
+  files:
+
+    &quot;${sys.inputdir}/tools/${def.tools}&quot;
+      comment =&gt; &quot;Ensure tools are executable&quot;,
+      perms   =&gt; mog(&quot;700&quot;, &quot;root&quot;, &quot;root&quot;);
+
+  methods:
+
+    cfengine_internal_masterfiles_update.am_policy_hub::
+      &quot;update masterfiles from remote repo&quot;
+        usebundle =&gt; cfe_internal_update_from_repository;
+
+    am_policy_hub::
+      &quot;Build new manifest.txt&quot;
+        comment   =&gt; &quot;Build/Update the manifest.txt&quot;,
+        handle    =&gt; &quot;cfe_internal_update_workflow_methods_build_manifest&quot;,
+        usebundle =&gt; cfe_internal_update_build_manifest;
+      &quot;update policies by local copying files&quot;
+        depends_on =&gt; { &quot;cfe_internal_update_workflow_methods_build_manifest&quot; },
+        usebundle  =&gt; cfe_internal_update_policy_local;
+
+    !am_policy_hub:: 
+      &quot;update policies&quot;
+        usebundle =&gt; cfe_internal_update_policy;
+
+    any::
+      &quot;Start processes&quot;
+        usebundle  =&gt; cfe_internal_update_start_service;
+}
+</code></pre>
+
+<p>The bundles <code>cfe_internal_update_policy_local</code> and <code>cfe_internal_update_policy</code>
+are very similar. They differ in where they copy masterfiles from, the former
+copies them from <code>${sys.workdir}/masterfiles</code> while the latter copies them from
+<code>@{update_def.policy_servers}</code>. Another difference is the fact that the former
+doesn&rsquo;t have a promise for modules, because they reside in <code>${sys.workdir}/modules</code>
+and should be already taken care of by the script that fetches the CFE3 files
+from the remote repository. So the former policy is used by autonomous nodes that
+are their own master. Here again credit to Neil Watson, that provided the
+foundation for these policies as found <a href="https://github.com/neilhwatson/evolve_cfengine_freelib/blob/master/masterfiles/lib/EFL/efl_update.cf">here</a>.</p>
+
+<p>Of course there are more promises involved, but the once we looked at are the
+most important to show how we can update CFE3 policies from any remote location
+by any means we see fit. If you want to dive deeper check out the
+[repository]().</p>
+
+<h2 id="happy-gossiping-decentralized-cluster-with-serf">Happy Gossiping (Decentralized Cluster with Serf)</h2>
+
+<p><a href="https://www.serf.io/">Serf</a> is a lightweight cluster membership tool by <a href="https://www.hashicorp.com/">HashiCorp</a> that also
+underlies <a href="https://www.consul.io/">Consul</a>. It&rsquo;s written in <a href="https://golang.org/">Go</a> and thus can be installed by just
+dropping a standalone binary.</p>
+
+<p>Serf exposes a small event interface to which we can attach scripts to perform
+desired actions. For example if a member joins/leaves a cluster an event is
+triggered and when it is triggered serf calls the specified script. This can
+be used to evaluate CFE3 policies immediately instead of waiting for the next
+scheduled run. Though for our purposes we don&rsquo;t use the event feature, what we
+do is parse the member list, that serf gives us, and make it available to CFE3.
+So that we can use this information within our policies (promises). An example
+why we want to do this is: when a new application instance joins the cluster,
+all the application load balancers need to adjust their configuration to
+forward traffic to the new instance, so we need the IP address and maybe other
+information of the new instance (serf supports tags to share information among
+members).</p>
+
+<p>The following script (located at <code>modules/serf-members.py</code>) produces a JSON
+string that follows the <a href="http://docs.ansible.com/ansible/dev_guide/developing_inventory.html">Ansible Inventory Script Conventions</a>, thus you can
+also use it for <a href="https://www.ansible.com/">Ansible</a>.</p>
+
+<pre><code>#!/usr/bin/env python2.7
+
+from subprocess import check_output, CalledProcessError
+from sys import argv, exit
+from argparse import ArgumentParser
+from io import open
+import json
+import os.path
+
+
+def get_memberlist(serf_path):
+    &quot;&quot;&quot; Get a list of serf members. &quot;&quot;&quot;
+    try:
+        if os.path.isfile(serf_path):
+            output = check_output([serf_path, &quot;members&quot;]).split(&quot;\n&quot;)[:-1]
+        else:
+            print(&quot;Couldn't find {}&quot;.format(serf_path))
+            exit(1)
+    except (CalledProcessError, OSError) as e:
+        print(&quot;Failed to get member list: {}&quot;.format(repr(e)))
+        exit(1)
+
+    return output
+
+
+def parse_memberlist(memberlist):
+    &quot;&quot;&quot; 
+    Parse the list of serf members by turning it into a dict.
+    See ansibles docs for developing dynamic inventory sources for more details.
+    &quot;&quot;&quot;
+    parsed = {&quot;_meta&quot;: {&quot;hostvars&quot;: {}}}
+    alive = list()
+    left = list()
+    failed = list()
+    for member in memberlist:
+        member = member.split()
+        tags = member[3].split(&quot;,&quot;)
+        tagsdict = dict()
+        for tag in tags:
+            tag_split = tag.split(&quot;=&quot;)
+            tagsdict.update(dict({tag_split[0] : tag_split[1]}))
+            if not parsed.has_key(&quot;tag_{}_{}_{}&quot;.format(
+                tag_split[0], tag_split[1], member[2])):
+                parsed.update(
+                    dict(
+                        {
+                            &quot;tag_{}_{}_{}&quot;.\
+                            format(
+                                tag_split[0], tag_split[1], member[2]) : list()}))
+            parsed[
+                    &quot;tag_{}_{}_{}&quot;.\
+                    format(tag_split[0], tag_split[1], member[2])
+                ].\
+                append(
+                    {&quot;ip&quot;: member[1].split(&quot;:&quot;)[0], &quot;name&quot;: member[0]})
+
+        if member[2] == &quot;alive&quot;:
+            alive.append({&quot;ip&quot;: member[1].split(&quot;:&quot;)[0], &quot;name&quot;: member[0], &quot;tags&quot;: tagsdict})
+        elif member[2] == &quot;left&quot;:
+            left.append({&quot;ip&quot;: member[1].split(&quot;:&quot;)[0], &quot;name&quot;: member[0], &quot;tags&quot;: tagsdict})
+        else:
+            failed.append({&quot;ip&quot;: member[1].split(&quot;:&quot;)[0], &quot;name&quot;: member[0], &quot;tags&quot;: tagsdict})
+
+        parsed[&quot;_meta&quot;][&quot;hostvars&quot;].update(
+            dict(
+                {
+                    member[1].split(&quot;:&quot;)[0] : 
+                    dict(
+                        {
+                            &quot;name&quot;: member[0],
+                            &quot;ip&quot;: member[1].split(&quot;:&quot;)[0],
+                            &quot;port&quot;: member[1].split(&quot;:&quot;)[1],
+                            &quot;state&quot;: member[2],
+                            &quot;tags&quot;: tagsdict})}))
+
+    parsed.update(dict({&quot;alive&quot;: alive}))
+    parsed.update(dict({&quot;left&quot;: left}))
+    parsed.update(dict({&quot;failed&quot;: failed}))
+    return parsed
+
+
+if __name__ == &quot;__main__&quot;:
+    # Parse cmdline arguments.
+    parser = ArgumentParser(description=&quot;Dump serf memberlist in JSON&quot;)
+    parser.add_argument(
+        &quot;-s&quot;, dest=&quot;serf_path&quot;, default=&quot;serf&quot;,
+        help = &quot;If serf is not on your path, provide the full path to it here&quot;)
+#    parser.add_argument(&quot;output&quot;, metavar=&quot;OUT&quot;, type=str,
+#        help = &quot;The path to a file to write the JSON formatted list to&quot;)
+
+    args = parser.parse_args()
+
+    # Get a list of members and parse it.
+    memberlist = parse_memberlist(get_memberlist(args.serf_path))
+
+    print(
+        json.dumps(
+            memberlist, ensure_ascii = False, indent = 2, sort_keys = True))
+</code></pre>
+
+<p>To generate the memberlist we use the following CFE3 policy <code>masterfiles/policies/serf_member.cf</code>:</p>
+
+<pre><code>bundle agent serf_member
+{
+  meta:
+
+    &quot;purpose&quot; string =&gt; &quot;Ensure serf is present and memberlist is created&quot;;
+
+  methods:
+
+    &quot;ensure serf&quot;
+      comment   =&gt; &quot;Ensure serf is present&quot;,
+      handle    =&gt; &quot;serf_member_methods_ensure_serf&quot;,
+      usebundle =&gt; serf_member_ensure_serf;
+    &quot;ensure memberlist&quot;
+      comment    =&gt; &quot;Ensure a memberlist of all members in the serf cluster is created&quot;,
+      depends_on =&gt; { &quot;serf_member_methods_ensure_serf&quot; },
+      usebundle  =&gt; serf_member_build_memberlist;
+}
+</code></pre>
+
+<p>The bundle <code>serf_member_ensure_serf</code> takes care of putting serf in place and
+configuring it as specified. After that <code>serf_member_build_memberlist</code> executes
+serf and stores the memberlist at <code>${sys.workdir}/state/member_list.json</code>.</p>
+
+<p>Now we can parse it (as an example):</p>
+
+<pre><code>bundle common policies_g
+{
+  classes:
+    &quot;serf_memberlist_exists&quot;
+      expression =&gt; fileexists(${serf_memberlist});
+
+  vars:
+    &quot;cfg&quot;
+      comment    =&gt; &quot;Different systems settings&quot;,
+      data       =&gt; '{&quot;database&quot;: {&quot;host&quot;: &quot;192.168.11.124&quot;,
+                                   &quot;port&quot;: 5432,
+                                   &quot;user&quot;: &quot;dbuser&quot;,
+                                   &quot;password&quot;: &quot;dbpass&quot;,
+                                   &quot;db&quot;: &quot;somedatabase&quot;}';
+    &quot;serf_memberlist&quot;
+      string =&gt; &quot;${sys.workdir}/state/member_list.json&quot;;
+    &quot;node_ips&quot;
+      comment =&gt; &quot;This list is used by serf to join the cluster.&quot;,
+      slist   =&gt; { &quot;192.168.11.123&quot; };
+    
+    serf_memberlist_exists::
+      &quot;members&quot;
+        data =&gt; readdata(${serf_memberlist}, &quot;auto&quot;);
+      &quot;cfg&quot;
+        commnet =&gt; &quot;Merge serf memberlist for easy access by other bundles&quot;,
+        data    =&gt; mergedata(&quot;cfg&quot;, &quot;members&quot;);
+
+      # A list of ips of all serf members
+      &quot;all_nodes&quot;
+        data =&gt; mergedata(&quot;cfg[_meta][hostvars]&quot;);
+      &quot;all_nodes_str&quot;
+        string =&gt; format(&quot;'%S'&quot;, all_nodes);
+      &quot;filter&quot;
+        string =&gt; &quot;'keys'&quot;;
+      &quot;ips&quot;
+        data =&gt; parsejson(
+          execresult(&quot;echo ${all_nodes_str} | ${def.jq} ${filter}&quot;, &quot;useshell&quot;));
+      &quot;node_ips&quot;
+        data =&gt; mergedata(&quot;node_ips&quot;, &quot;ips&quot;);
+}
+</code></pre>
+
+<p>Note that we use <a href="https://stedolan.github.io/jq/">jq</a> here (as indicated by <code>${def.jq}</code>, which references
+the path to the binary) to filter the member list. We also use <code>jq</code> in the
+following examples. I highly recommend it if you need to work with JSON data
+on the command line and if the embedded CFE3 functions/bundles don&rsquo;t provide the
+required capabilites you need to parse JSON data.</p>
+
+<p>An example to access the memberlist from other bundles:</p>
+
+<pre><code>bundle agent example
+{
+  vars:
+    &quot;memcached_alive&quot;
+      data =&gt; mergedata(&quot;policies_g.cfg[tag_role_memcached_alive]&quot;);
+    &quot;memcached_alive_str&quot;
+      string =&gt; format(&quot;'%S'&quot;, memcached_alive);
+    &quot;filter&quot;
+      string =&gt; &quot;'.[] | {memcached: [{ip: .ip}]}'&quot;;
+    &quot;memcached&quot;
+      data =&gt; parsejson(
+        execresult(&quot;echo ${memcached_alive_str} | ${def.jq} ${filter}&quot;, &quot;useshell&quot;));
+}
+</code></pre>
+
+<p>The above creates the equivalent of a JSON map that looks as follows:</p>
+
+<pre><code>{ &quot;memcached&quot;: [
+    {&quot;ip&quot;: &quot;192.168.11.134&quot;},
+    {&quot;ip&quot;: &quot;192.168.11.135&quot;}
+  ]
+}
+</code></pre>
+
+<p>This can be used for example to dynamically change a configuration file of
+a service that needs access to a cluster of memcached instances. The following
+examples uses <a href="https://cfengine.com/learn/edit-files-configurations/">mustache templating</a> for the configuration file:</p>
+
+<pre><code>{
+  ...
+
+  ; Memcache (used for sessions)
+  :memcache {
+    :hosts &quot;{{#memcached}}{{ip}}:11211,{{//memcached}}&quot;
+  }
+
+  ...
+}
+
+=== Result
+
+{
+  ...
+
+  ; Memcache (used for sessions)
+  :memcache {
+    :hosts &quot;192.168.11.134:11211,192.168.11.135:11211,&quot;
+  }
+</code></pre>
+
+<p>For a full working example take a look at the <a href="https://github.com/smotti/cfe3-serf-example">GitHub repository</a>.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>CFEngine3 and Serf provide a simple solution for automated infrastructure
+management compared to more complex ones like Puppet, Chef, Consul or tools
+in the container field like Kubernetes. Thus enabling a very small team to
+manage large infrastructure.</p>
+
+<p>Though this solution doesn&rsquo;t provide any Web UI, compared to the other solutions.</p>
+
+    </div>
+
+    <div class="disqus">
+        
+    </div>
+
+<div class="container has-text-centered top-pad">
+<hr>
+<a href="https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/#top"><i class="fa fa-arrow-up"></i></a>
+<hr>
+</div>
+
+<div class="section" id="footer">
+    <div class="container has-text-centered">
+        
+        <span class="footer-text"><a href="https://github.com/vickylaiio/hugo-theme-introduction" target="_blank">Introduction</a> theme for <a href="http://gohugo.io/" target="_blank">Hugo</a>. Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i>. <a href="https://vickylai.io" target="_blank">Vicky Lai</a> 2017</span>
+        
+    </div>
+</div>
+</div>
+</div>
+
+
+<script>
+$('a[href^="https:\/\/smotti.github.io\/sw-schmiede\/blog\/decentralized-infrastructure-with-cfengine3-and-serf\/#"]').click(function(e) {
+    e.preventDefault();
+    var target = this.hash;
+    $('html, body').animate({
+    scrollTop: $(target).offset().top
+    }, 500);
+    return false;
+})
+</script>
+
+</body>

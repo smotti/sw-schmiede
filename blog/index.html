@@ -14,10 +14,10 @@
 <title>
 
 
-     404 Page not found 
+     Blogs 
 
 </title>
-<link rel="canonical" href="">
+<link rel="canonical" href="https://smotti.github.io/sw-schmiede/blog/">
 
 
 
@@ -57,7 +57,7 @@
 
 
 
-  <link href="https://smotti.github.io/sw-schmiede/index.xml" rel="alternate" type="application/rss+xml" title="Software Schmiede" />
+  <link href="https://smotti.github.io/sw-schmiede/blog/index.xml" rel="alternate" type="application/rss+xml" title="Software Schmiede" />
 
 
 
@@ -68,12 +68,12 @@
 
 <div class="section" id="top">
 
-    <div class="container hero is-medium has-text-centered ">
-    <h1 class="bold-title is-1">404</h1>
+    <div class="container hero ">
+    <h1 class="bold-title is-1">William's Blog</h1>
     </div>
 
-
-<div class="section ">
+    
+    <div class="section no-padding ">
 
     <div class="container">
     <hr>
@@ -95,11 +95,6 @@
         <a href="https://smotti.github.io/sw-schmiede/#projects">Projects</a> 
       </span>
     
-    
-      <span class="nav-item">
-        <a href="https://smotti.github.io/sw-schmiede/blog">Back to blog</a>
-      </span> 
-    
       <span class="nav-item">
         <a href="https://smotti.github.io/sw-schmiede/#contact">Contact</a>
       </span>
@@ -112,12 +107,44 @@
 </nav>
 <hr>
     </div>
+       
+    <div class="container">
 
-    <div class="container  top-pad">
-        Oops! Either you've found a bug (in which case, <a href="mailto:wottis@gmail.com">please tell me</a>) or you're just making things up. This page doesn't exist!
+    
+    <h2 class="title is-2 top-pad">Latest Post</h2>
+         
+        <div class="summary">Jun 19, 2017
+            <h3 class="title is-3 strong-post-title"><a href="https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/">Decentralized Infrastructure with CFEngine3 and Serf</a></h3>
+                <div class="markdown">
+                Decentralized Infrastructure with CFEngine3 and Serf Note this was done around two years ago, back then I couldn&rsquo;t find a similar setup in the CFE3 community or elsewhere.
+Reading Mark Burgess&rsquo;s book In Search of Certainty I got inspired to build a fully decentralized cloud infrastructure, with self-healing capabilities and that can scale to several thousand nodes, requiring as few administrators as possible (due to very limited human resources at the company I built it for).
+                
+                <a href="https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/">...Read More</a>
+                
+                </div>
+        </div>
+        
+    
+
+    <h2 class="title is-2 top-pad">All Posts</h2>
+        <ul>
+        
+            
+                <li class="post-item">
+    <span><a href="https://smotti.github.io/sw-schmiede/blog/decentralized-infrastructure-with-cfengine3-and-serf/">Decentralized Infrastructure with CFEngine3 and Serf</a></span> - <span>Jun 19, 2017</span>
+</li>
+            
+        
+        </ul>
+
     </div>
 
-<div class="top-pad"><hr></div>
+<div class="container has-text-centered top-pad">
+<hr>
+<a href="https://smotti.github.io/sw-schmiede/blog/#top"><i class="fa fa-arrow-up"></i></a>
+<hr>
+</div>
+
 <div class="section" id="footer">
     <div class="container has-text-centered">
         
@@ -126,3 +153,18 @@
     </div>
 </div>
 </div>
+</div>
+
+
+<script>
+$('a[href^="https:\/\/smotti.github.io\/sw-schmiede\/blog\/#"]').click(function(e) {
+    e.preventDefault();
+    var target = this.hash;
+    $('html, body').animate({
+    scrollTop: $(target).offset().top
+    }, 500);
+    return false;
+})
+</script>
+
+</body>
