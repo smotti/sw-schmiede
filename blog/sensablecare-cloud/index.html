@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Software Schmiede provides consulting in IT System Engineering and Agile Software Development">
+
+<base href="https://smotti.github.io/sw-schmiede/">
+<title>
+
+
+     Sensablecare Cloud 
+
+</title>
+<link rel="canonical" href="https://smotti.github.io/sw-schmiede/blog/sensablecare-cloud/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500|Work+Sans">
+
+
+
+    
+    <link rel="stylesheet" href="https://smotti.github.io/sw-schmiede/css/light-style.css?t=1498033916">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://smotti.github.io/sw-schmiede/img/fav.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+<body lang="en">
+  
+
+<div class="section" id="top">
+
+    <div class="container hero ">
+    <h1 class="bold-title is-1">William's Blog</h1>
+    </div>
+
+
+<div class="section ">
+
+    <div class="container">
+    <hr>
+<nav class="nav nav-center">
+    <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div id="nav-menu" class="nav-left nav-menu">
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/">Main</a>
+      </span>
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/#about">About</a> 
+      </span>
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/#projects">Projects</a> 
+      </span>
+    
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/blog">Back to blog</a>
+      </span> 
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/#contact">Contact</a>
+      </span>
+    
+      <span class="nav-item">
+        <a href="https://smotti.github.io/sw-schmiede/index.xml"><i class="fa fa-rss"></i></a>
+      </span>
+    
+    </div>
+</nav>
+<hr>
+    </div>
+
+    <div class="container ">
+        <h2 class="title is-1 top-pad strong-post-title"><a href="https://smotti.github.io/sw-schmiede/blog/sensablecare-cloud/">Sensablecare Cloud</a></h2>
+            <div class="post-data">
+                Jun 21, 2017 |
+                4 minutes read
+            </div>
+
+            
+                <div class="blog-share">
+                Share this:
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20Sensablecare%20Cloud%20https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fsensablecare-cloud%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fsensablecare-cloud%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fsensablecare-cloud%2f&amp;description=Sensablecare%20Cloud"
+                onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fa fa-pinterest"></i>
+                <span class="hidden">Pinterest</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fsmotti.github.io%2fsw-schmiede%2fblog%2fsensablecare-cloud%2f"
+                onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-linkedin"></i>
+                <span class="hidden">Google+</span>
+                </a>
+                </div>
+            
+
+    </div>
+
+    <div class="container markdown  top-pad">
+        <p>A cloud-backend on AWS for the consumer market product of MedicusTek.</p>
+
+<p>Due to the nature of the data a strong focus on overall system security was
+required. Other quality attributes like reliability and availability were also
+very important because the product is used for real-time monitoring. Besides
+that there was one tough constraint, use as less AWS services as possible in
+order for the company to change cloud providers easily, if the need arises.</p>
+
+<p>At the time the project was initiated I was the only person with the required
+skills to realize this project. This meant that the infrastructure should be
+simple and maintainable, even at large scales, by just one or maybe two to three
+people. Another factor was that the company is a start-up, meaning I also had
+to do software development for other projects.</p>
+
+<p>One personal goal was to build it using the infrastructure as code practice,
+in order to quickly perfom changes across the infrastructure and to
+be able to replicate it easily on different AWS regions or even other cloud
+providers. Another benefit is that everything about the infrastructure is
+documented in a declarative language, thus making it easy for new members to
+get started quickly.</p>
+
+<p>The things mentioned above led to the following choices for technologies:</p>
+
+<ul>
+<li>CFEngine3
+
+<ul>
+<li>Father of configuration management (est. 1992)</li>
+<li><a href="https://nvd.nist.gov/vuln/search/results?adv_search=false&amp;form_type=basic&amp;results_type=overview&amp;search_type=all&amp;query=cfengine">Impressiv security record</a></li>
+<li>Founded on powerful concept: <a href="https://en.wikipedia.org/wiki/Promise_theory">Promise Theory</a></li>
+<li>Declarative definition of system configuration/state</li>
+<li>Lightweight, because to safe money we used low-resource instance</li>
+<li>Opertionally simple to setup and use</li>
+<li>Decentralized</li>
+</ul></li>
+<li>Serf
+
+<ul>
+<li>For orchestration, because CFEngine3 doesn&rsquo;t provide this</li>
+<li>UDP based gossip protocol</li>
+<li>Opertionally simple to setup and use</li>
+<li>Decentralized</li>
+</ul></li>
+<li>Terraform
+
+<ul>
+<li>Infrastructure as code</li>
+<li>Ability to easily setup and manage cross-provider infrastructures</li>
+<li>Easy startup/teardown of whole infrastructure</li>
+</ul></li>
+<li>Packer
+
+<ul>
+<li>Infrastructure as code</li>
+<li>Building AMIs manually is just a pain</li>
+</ul></li>
+<li>Collectd
+
+<ul>
+<li>Instance based system statistics monitoring and gathering</li>
+<li>Lightweight</li>
+</ul></li>
+<li>Riemann
+
+<ul>
+<li>Real-time monitoring system</li>
+<li>Receives system statistics from collectd running on each instance</li>
+</ul></li>
+<li>InfluxDB
+
+<ul>
+<li>Dedicated timeseries database</li>
+<li>Used for monitoring data</li>
+</ul></li>
+<li>Grafana
+
+<ul>
+<li>Dashboard for monitoring system statistics</li>
+</ul></li>
+</ul>
+
+<p>Along the way I evaluated nagios and ganglia, but they are not as easy to work
+with as the other tools, and certainly require more effort in configuring them.
+Another point is that they don&rsquo;t scale very well.</p>
+
+<p>Configuration management tools like Ansible, Chef, Puppet or Salt are either not
+decentralized and/or don&rsquo;t use a declarative approach to specify the desired
+configuration (state). Instead they use the tools implementation language
+(Ruby in case of Chef and Puppet, Python in case of Salt) and thus an
+imperative approach. This means that the definition of the desired system state
+can become unnecessary complex and hard to maintain, especially when branching
+is involved. Though Ansible uses YAML and with that a declarative approach but
+you still have to write the playbook in a step by step order. CFEngine3 in
+contrast doesn&rsquo;t require you to define the order, you just define what you want
+the system state to look like and CFEngine3 takes care of the ordering.</p>
+
+<p>The infrastructure tools CFEngine3 and Serf, in combination with AWS ASG,
+provide a very high level of automation and they also enable the infrastructure
+to have self-healing capabilities. Meaning as soon as an instance fails or
+comes online, the infrastructure (each instance) becomes aware of it and
+configures itself automatically. CFengine3 and Serf are also decentralized,
+this allows them to scale to very large setups.</p>
+
+<p>Above are the technologies to provide the infrastructure for the higher level
+services, which I also had to implement. For the implementation of the only
+required software service (exposing a HTTP REST-API) I used:</p>
+
+<ul>
+<li>Clojure
+
+<ul>
+<li>Joyful programming</li>
+<li>Simple language</li>
+<li>Runs on the JVM, meaning all the Java world is available</li>
+<li>Also means resulting application can be easily deployed</li>
+<li>Performance</li>
+</ul></li>
+<li>Memcached
+
+<ul>
+<li>Just needed a simple temporary store for session data</li>
+</ul></li>
+<li>PostgreSQL
+
+<ul>
+<li>Great RDBMS used for application data</li>
+<li>Well established</li>
+</ul></li>
+</ul>
+
+<p>The AWS services that were used are:</p>
+
+<ul>
+<li>ASG</li>
+<li>EC2</li>
+<li>Elastic IP</li>
+<li>ELB</li>
+<li>IAM</li>
+<li>S3</li>
+<li>Security Groups</li>
+<li>VPC</li>
+</ul>
+
+<p>The criteria for the AWS services was, that the same functionality is also
+available by other cloud providers.</p>
+
+    </div>
+
+    <div class="disqus">
+        
+    </div>
+
+<div class="container has-text-centered top-pad">
+<hr>
+<a href="https://smotti.github.io/sw-schmiede/blog/sensablecare-cloud/#top"><i class="fa fa-arrow-up"></i></a>
+<hr>
+</div>
+
+<div class="section" id="footer">
+    <div class="container has-text-centered">
+        
+        <span class="footer-text"><a href="https://github.com/vickylaiio/hugo-theme-introduction" target="_blank">Introduction</a> theme for <a href="http://gohugo.io/" target="_blank">Hugo</a>. Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i>. <a href="https://vickylai.io" target="_blank">Vicky Lai</a> 2017</span>
+        
+    </div>
+</div>
+</div>
+</div>
+
+
+<script>
+$('a[href^="https:\/\/smotti.github.io\/sw-schmiede\/blog\/sensablecare-cloud\/#"]').click(function(e) {
+    e.preventDefault();
+    var target = this.hash;
+    $('html, body').animate({
+    scrollTop: $(target).offset().top
+    }, 500);
+    return false;
+})
+</script>
+
+</body>
